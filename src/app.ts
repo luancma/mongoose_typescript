@@ -5,7 +5,9 @@ import 'dotenv/config'
 
 const dbpassword = process.env.DB_PASSWORD as string;
 const databaseName = process.env.DB_NAME as string;
-const newMongoose = new Mongoose(dbpassword, databaseName);
+const databaseUser = process.env.DB_USER as string;
+
+const newMongoose = new Mongoose(dbpassword, databaseName, databaseUser);
 
 const app = express();
 app.use(express.json());
